@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		//用户名写入"请输入管理员用户名！"js 
+    $("#txtName").val("请输入管理员用户名！"); 
+    //用户名写入"请输入管理员用户名！"js 
+    //用户名输入js 
+    //当文本框等到焦点 
+    $("#txtName").focus(function () { 
+        if ($("#txtName").val() == "请输入管理员用户名！") { 
+            $("#txtName").val(""); 
+        } 
+    }); 
+    //当文本框失去焦点 
+    $("#txtName").blur(function () { 
+        var checking = false; 
+        var txtName = $("#txtName").val(); 
+        //当文本框为空 
+        if (txtName == "") { 
+            $("#txtName").val("请输入管理员用户名！"); 
+            $("#prompt_txtName").text("请输入管理员用户名！"); 
+            $("#prompt_txtName").text("用户名不能为空！"); 
+        } 
+        //当文本框没有变化 
+        else if (txtName == "请输入管理员用户名！") { 
+            $("#prompt_txtName").text("请按要求填写用户名！"); 
+        } 
+        //只允许汉字、英文字母、数字、下划线！ 
+        else if (!txtName.match(/^[\u4E00-\u9FA5a-zA-Z0-9_]{0,}$/)) {//.match(/^[\u4E00-\u9FA5a-zA-Z0-9_]{3,20}$/) //{3,20}$表示是长度3-20 
+            $("#prompt_txtName").text("只允许汉字、英文字母、数字、下划线！"); 
+        } 
+        //邮箱验证 
+        else if (!txtName.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) { 
+            $("#prompt_txtName").text("请输入正确的邮箱格式！"); 
+        } 
+        //文本框的内容的长度 
+        else if (txtName.length > 20 || txtName.length < 3) { 
+            $("#prompt_txtName").text("长度在3-20之间！"); 
+        } 
+        else { 
+        //判断 用户是否存在 
+            $.ajax({ 
+                type: "post", 
+                dataType: "Text", 
+                url: "Login.aspx", 
+                data: { judge: txtName }, 
+                //beforeSend: function () {//未发送执行的事件 
+                //alert("dd");; 
+                //}, 
+                success: function (data) {//data就是返回的那个字符串 
+                    if (data == "Exist") { 
+                        checking = true; 
+                        $("#prompt_txtName").text(""); 
+                    } 
+                    else { 
+                        $("#prompt_txtName").text("此用户不存在！"); 
+                    } 
+                }, 
+                error: function (err) { 
+                    alert("请刷新后重试！"); 
+                } 
+            }); 
+        } 
+        if (checking) { 
+            $("#imgName").attr("src", "SystemImage/false.png"); 
+            $("#imgName").show(); 
+        } 
+        else { 
+            $("#imgName").attr("src", "SystemImage/true.png"); 
+            $("#imgName").show(); 
+        } 
+    }); 
+    //用户名输入js 
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

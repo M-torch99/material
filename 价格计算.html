@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>价格计算</title>
+	<style type="text/css">
+	.pshow{padding:15px;overflow:hidde;}
+	.pshow h1{font-size:18px;}
+	.pshow img{float:left;margin-right:20px;width:300px;border:1px solid #ddd;}
+	#subPrice{color:#c00;font-weight:bold;}
+	#qty{width:60px;}
+	</style>
+	<script type="text/javascript">
+		function calc() {
+			var strPricre = document.getElementById('price').innerHTML ;
+			console.log(strPricre)
+			var price = Number(strPricre.slice(3,-1));
+
+			var strNum = document.getElementById('qty').value;
+			var num = Number(strNum);
+			var total = num * price;
+
+			document.getElementById('subPrice').innerHTML = total.toFixed(2);
+		}
+	</script>
+</head>
+<body>
+	<div class="pshow">
+	<h1>Nike 耐克官方 NIKE AIR MAX 90 ESSENTIAL 男子运动鞋 537384</h1>
+	<img src="s1.jpg">
+	<p id="price">价格：599.98元</p>
+	<p>数量：<input type="number" id="qty" min="1" max="100" oninput="calc()"></p>
+	<p>总价：<span id="subPrice"></span></p>
+</div>
+</body>
+</html>

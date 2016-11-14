@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+			padding: 0;
+			margin: 0;
+		}
+		div{
+			width: 190px;
+		}
+		h3{
+			width: 190px;
+			height: 45px;
+			line-height: 45px;
+			color: #fff;
+			background: #2ddceb;
+			font-size: 20px;
+			text-indent: 44px;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.dul li a{
+			
+			
+			display: block;
+			width: 190px;
+			text-decoration: none;
+			line-height: 30px;
+			text-indent: 44px;
+			background-color: #edfcff;
+			color: #000;
+		}
+		.dul .xul{
+			display: none;
+		}
+		.dul .xul li{
+			line-height: 36px;
+			color:#000;
+			text-indent: 46px;
+			
+		}
+	
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var bUl = document.getElementsByClassName('dul')[0];
+			var bLi = bUl.getElementsByClassName('dli');
+			var sUl = document.getElementsByClassName('xul');
+			for(var i = 0;i<bLi.length;i++){
+				bLi[i].index = i;
+				bLi[i].onclick = function(){
+					var pos = this.index;
+					for(var j = 0 ;j<sUl.length;j++){
+						
+						sUl[j].style.display = 'none';
+					}
+					sUl[pos].style.display = 'block';
+				}
+			}
+		}	
+
+			
+				
+
+	</script>
+</head>
+<body>
+	<div>
+		<h3>帮助中心</h3>
+		<ul class="dul">
+			<li >
+				<a href="#" class="dli">新手入门</a>
+				<ul class="xul" style='display: block;'>
+					<li>购物指南</li>
+					<li>会员介绍</li>
+					<li>服务协议</li>
+					<li>联系客服</li>
+				</ul>
+			</li>
+			<li >
+				<a href="#" class="dli">新手入门</a>
+				<ul class="xul">
+					<li>购物指南</li>
+					<li>会员介绍</li>
+					<li>服务协议</li>
+					<li>联系客服</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" class="dli">新手入门</a>
+				<ul class="xul">
+					<li>购物指南</li>
+					<li>会员介绍</li>
+					<li>服务协议</li>
+					<li>联系客服</li>
+				</ul>
+			</li>
+			<li >
+				<a href="#" class="dli">新手入门</a>
+				<ul class="xul">
+					<li>购物指南</li>
+					<li>会员介绍</li>
+					<li>服务协议</li>
+					<li>联系客服</li>
+				</ul>
+			</li>
+			<li >
+				<a href="#" class="dli">新手入门</a>
+				<ul class="xul">
+					<li>购物指南</li>
+					<li>会员介绍</li>
+					<li>服务协议</li>
+					<li>联系客服</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

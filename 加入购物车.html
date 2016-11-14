@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加入购物车</title>
+	<script src="封装cookie.js"></script>
+	<script>
+	onload = function(){
+		//先获取cookie
+		var str = getCookie('arr');
+		//定义义个数组，用于存储所有的商品信息
+		var arr = [];
+		var allA = document.getElementsByTagName('a');
+
+		for(var i = 0 ;i<allA.length;i++){
+
+			allA[i].onclick = function() {
+				alert('加入成功啦');
+				var oPrice = this.parentNode.previousElementSibling;
+				var oProduct = price.previousElementSibling;
+				var oSpan = oProduct.getElementsByTagName('span')[0];
+
+				var obj = "";
+				obj.name = oSpan.innerHTML;
+				obj.price = oPrice.innerHTML;
+				var arr = arr.push(obj);
+				//toSource返回数组的值
+				addCookie("arr",arr.toSource(),7);
+			}
+		}
+
+		var gotoBtn = document.getElementById('goto');
+		gotoBtn.onclick = function() {
+			window.location.href = "查看我的购物车.html"
+		}
+	}
+		
+	</script>
+</head>
+<body>
+	<body>
+		<ul>
+
+			<li>
+			  <span>
+				  <img src="images/taobao_cart_01.jpg" alt="shopping"/>
+				  <span>公主靴子</span>
+			  </span>
+			  <span style="color: red">RMB138</span>
+			  <span>
+				<!-- 
+					// 这个是价格
+					var oPrice = this.parentNode.previousElementSibling
+
+					// 这个商品的信息
+					var oProduct = oPrice.previousElementSibling;
+					
+					// 取出商品名字的标签对象
+					var oSpan = oProduct.getElementsByTagName("span")[0];
+				
+					// 取出标签对象中的名字，也就是商品的名称
+					oSpan.innerHTML;
+				
+				-->
+				<!-- href 设置成 javascript:void(0) 代表什么都不执行，那么忽略链接的跳转 -->
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+			<li>
+			  <span>
+
+				<img src="images/taobao_cart_02.jpg" alt="shopping"/>
+				<span>香奈尔炫亮魅力唇膏3.5g</span>	
+
+			  </span>
+			  <span style="color: red">RMB265</span>
+			  <span>
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+			<li>
+			  <span>
+
+				<img src="images/taobao_cart_03.jpg" alt="shopping"/>
+				<span>蝶妆海蓝清滢粉底液10</span>
+			  </span>
+			  <span style="color: red">RMB85</span>
+			  <span>
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+			<li>
+			  <span>
+
+				<img src="images/taobao_cart_04.jpg" alt="shopping"/>
+				<span>最好用的LilyBell化妆棉</span>
+
+			  </span>
+			  <span style="color: red">RMB12</span>
+			  <span>
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+		</ul>
+		<!--
+		<a href="demo3-我的购物车.html">查看购物车</a>
+		-->
+		<button id="goto"> 查看购物车 </button>
+</body>
+</html>

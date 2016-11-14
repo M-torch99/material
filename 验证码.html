@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证码</title>
+	<script>
+			// var oInput = document.getElementsByTagName('input')[0];
+
+			// //1.生成随机的数字[48,57]
+			// function randNum() {
+			// 	var code = Math.floor(Math.random()*(57-48)) + 48;
+			// 	return String.fromCharCode(code);
+			// }
+
+			// //2.生成随机的大写字母[65,90]
+
+			// function randBig(){
+			// 	var code = Math.floor(Math.random()*(90-65+1))+65;
+			// 	return String.fromCharCode(code);
+			// }
+
+			// function refresh(){
+			// 	var str = '';
+			// 	for(var i = 0 ;i<6;i++){
+			// 		var d = parseInt(Math.random()*2);
+			// 		var c = randNum();
+			// 		if(d == 1){
+
+			// 			c = randBig();
+			// 		}
+
+			// 		str += c;
+			// 	}
+
+			// 	var oDiv = document.getElementById('code');
+			// 	oDiv.innerHTML = str;
+
+			// }	
+			// function refresh(){
+			// 	var arr = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			// 	var yzm="";
+
+			// 	for(var i = 0 ;i<4;i++){
+
+			// 		yzm = yzm + arr[parseInt(Math.random()*arr.length)];
+			// 	}
+
+			// 	var oDiv = document.getElementById('code');
+			// 	oDiv.innerHTML = yzm;
+			// }
+			//1.生成随机数字[48,57]
+			function randNum(){
+				var code = parseInt(Math.random()*(57-48+1)+48);
+				return String.fromCharCode(code);
+			}
+
+			//2.生成随机大写字母[65,90]
+			function randBig(){
+				var code = parseInt(Math.random()*(90-65+1)+65);
+				return String.fromCharCode(code);
+			}
+
+			function refresh(){
+				var str = '';
+				for(var i = 0;i<4;i++){
+					
+					var d = parseInt(Math.random()*2);
+					var c = randNum();
+					if(d==1){
+						c = randBig();
+					}
+
+					str += c;
+
+					var oDiv = document.getElementById('code');
+					oDiv.innerHTML = str;
+				}
+				
+			}
+			
+	</script>
+</head>
+<body>
+	<div id="code"></div>
+	<input type="button" value ="点我生成随机验证码" onclick="refresh()"/>
+</body>
+</html>

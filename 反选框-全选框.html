@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选框-复选框</title>
+</head>
+<body>
+	<input type="button" value ="全选">
+	<input type="button" value ="反选">
+	<ul>
+		<li><input type="checkbox" name="01"></li>
+		<li><input type="checkbox" name="02"></li>
+		<li><input type="checkbox" name="03"></li>
+		<li><input type="checkbox" name="04"></li>
+		<li><input type="checkbox" name="05"></li>
+		<li><input type="checkbox" name="06"></li>
+	</ul>
+
+	<script>
+		// onload = function() {
+		// 	var oInputs = document.getElementsByTagName('input');
+		// 	oInputs[0].onclick = function() {
+		// 		for(var i = 2;i<oInputs.length;i++){
+		// 			oInputs[i].checked = 'true';
+		// 		}
+		// 	}
+		// 	//input 中复选框checkbox的checked属性，设置或者返回checkbox是否应备选中.
+		// 	oInputs[1].onclick = function() {
+		// 		for(var i = 2;i<oInputs.length;i++){
+		// 			if(oInputs[i].checked){
+		// 				oInputs[i].checked = 'true';
+		// 			}else{
+		// 				oInputs[i].checked = 'false';
+		// 			}
+		// 		}
+		// 	}
+		// }
+
+		onload = function() {
+			var oInputs = document.getElementsByTagName('input');
+			oInputs[0].onclick = function() {
+				for(var i = 2;i<oInputs.length;i++){
+					oInputs[i].checked = 'true';
+				}
+			}
+
+			oInputs[1].onclick = function() {
+				for(var i = 2 ;i<oInputs.length;i++){
+					if(oInputs[i].checked){
+						oInputs[i].checked  = 'true';
+					}else{
+						oInputs[i].checked = 'false';
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

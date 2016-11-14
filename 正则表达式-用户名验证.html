@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-用户名验证</title>
+<style>
+	div {
+	    border: 1px solid gray;
+	    line-height: 80px;
+	    font-size: 30px;
+	}
+
+	div input {
+	    height: 40px;
+	    width: 200px;
+	}
+
+	div span {
+	    color: red;
+	}
+</style>
+	<script>
+		 onload = function(){
+
+		 	var oDiv = document.getElementById('yhm');
+		 	var oLabel = oDiv.getElementsByTagName('label')[0];
+		 	var oInput = oDiv.getElementsByTagName('input')[0];
+		 	var oSpan = null;
+		 	oInput.oninput = function() {
+		 		//1.用户名注册  只能以字母开头 后面可以是字母数字和下划线
+		 		oSpan = this.nextElementSibling;
+		 		var str = this.value;
+		 		var reg = /^[a-zA-Z]\w{5,19}$/;
+
+		 		oSpan.innerHTML = reg.test(str);
+		 	}
+
+		 	//2.电话号码注册 1开头 第二个数[3,4,5,7,8]
+		 	var oDiv = document.getElementById('dhhm');
+		 	var oLabel = oDiv.getElementsByTagName('label')[0];
+		 	var oInput = oDiv.getElementsByTagName('input')[0];
+		 	oInput.oninput = function() {
+		 		oSpan = this.nextElementSibling;
+		 		var str = this.value;
+		 		var reg = /^1[34578]\d{9}$/;
+		 		oSpan.innerHTML = reg.test(str);
+		 	}
+
+		 	//3.电子邮箱验证 以字母数字和下划线开头  @ 字母和数字 . 字母
+		 	var oDiv = document.getElementById('dzyx');
+		 	var oLabel = oDiv.getElementsByTagName('label')[0];
+		 	var oInput = oDiv.getElementsByTagName('input')[0];
+		 	oInput.oninput = function(){
+		 		oSpan = this.nextElementSibling;
+			 	var str = this.value;
+			 	var reg = /^\w{1,}@[a-zA-Z0-9]{1,}\.[a-zA-z]{1,3}$/;
+				oSpan.innerHTML = reg.test(str);
+		 	}
+		 	//4.QQ验证
+		 	var oDiv = document.getElementById('qq');
+		 	var oLabel = oDiv.getElementsByTagName('label')[0];
+		 	var oInput = oDiv.getElementsByTagName('input')[0];
+		 	oInput.oninput = function() {
+		 		oSpan = this.nextElementSibling;
+		 		var str = this.value;
+		 		var reg = /^[1-9]\d{4,12}$/;
+		 		oSpan.innerHTML = reg.test(str);
+		 	}
+
+		 	//5.身份证号验证
+		 	var oDiv = document.getElementById('sfzh');
+		 	var oLabel = oDiv.getElementsByTagName('label')[0];
+		 	var oInput = oDiv.getElementsByTagName('input')[0];
+		 	oInput.oninput = function() {
+		 		oSpan = this.nextElementSibling;
+		 		var str = this.value;
+		 		var reg = /^[1-9]\d{16}(\d|x)$/;
+		 		oSpan.innerHTML = reg.test(str);
+		 	}
+		 	
+
+		}
+	</script>
+</head>
+<body>
+	<h1>表单校验大全</h1>
+
+	<div id="yhm"> <label> 用户名<label> <input type="text" /> <span>  </span></div>
+
+	<div id="dhhm"> <label> 电话号码<label> <input type="text" /> <span>  </span></div>
+
+	<div id="dzyx"> <label> 电子邮箱<label> <input type="text" /> <span>  </span></div>
+
+	<div id="qq"> <label> QQ:<label> <input type="text" /> <span>  </span></div>
+
+	<div id="sfzh"> <label> 身份证号:<label> <input type="text" /> <span>  </span></div>
+		
+</body>
+</html>
